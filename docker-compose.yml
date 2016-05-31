@@ -6,7 +6,7 @@ services:
     #####################
     nginx:
         container_name: LEMP_nginx
-        image         : evild/alpine-nginx:1.9.15-openssl
+        image         : nginx/stable
         restart       : always
         links         :
             - php
@@ -23,7 +23,7 @@ services:
     #####################    
     php:
         container_name: LEMP_php
-        image         : evild/alpine-php:7.0.6
+        image         : php/php:7-fpm
         restart       : always
         volumes       :
             - ./html:/var/www/html
