@@ -7,7 +7,6 @@ services:
     nginx:
         container_name: LEMP_nginx
         image         : nginx:stable
-        restart       : always
         links         :
             - php
         volumes       :
@@ -23,7 +22,6 @@ services:
     php:
         container_name: LEMP_php
         image         : php:7-fpm
-        restart       : always
         volumes       :
             - ./html:/var/www/html
         depends_on    :
@@ -42,7 +40,6 @@ services:
     db:
         container_name: LEMP_mariadb
         image         : mariadb:latest
-        restart       : always
         volumes       :
             - ./datadir:/var/lib/mysql
         environment:
