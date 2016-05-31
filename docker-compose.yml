@@ -6,7 +6,7 @@ services:
     #####################
     nginx:
         container_name: LEMP_nginx
-        image         : nginx/stable
+        image         : nginx:stable
         restart       : always
         links         :
             - php
@@ -23,7 +23,7 @@ services:
     #####################    
     php:
         container_name: LEMP_php
-        image         : php/php:7-fpm
+        image         : php:7-fpm
         restart       : always
         volumes       :
             - ./html:/var/www/html
