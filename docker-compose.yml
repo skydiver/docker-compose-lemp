@@ -32,10 +32,10 @@ services:
         links:
             - db
         environment:
-            - DB_HOST      = lemp
-            - DB_NAME      = dbuser
-            - DB_PASSWORD  = dbpass
-            - TABLE_PREFIX = lemp_
+            - DB_HOST=lemp
+            - DB_NAME=dbuser
+            - DB_PASSWORD=dbpass
+            - TABLE_PREFIX=lemp_
 
     #####################
     # DATABASE
@@ -47,4 +47,4 @@ services:
         volumes       :
             - ./datadir:/var/lib/mysql
         environment:
-            - MYSQL_ROOT_PASSWORD = root
+            - MYSQL_ROOT_PASSWORD=root
