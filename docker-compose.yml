@@ -1,6 +1,6 @@
 version: '2'
 services:
-    
+
     #####################
     # NGINX
     #####################
@@ -20,7 +20,7 @@ services:
 
     #####################
     # PHP
-    #####################    
+    #####################
     php:
         container_name: LEMP_php
         image         : php:7-fpm
@@ -39,7 +39,7 @@ services:
 
     #####################
     # DATABASE
-    #####################    
+    #####################
     db:
         container_name: LEMP_mariadb
         image         : mariadb:latest
