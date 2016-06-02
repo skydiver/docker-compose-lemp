@@ -11,7 +11,7 @@ services:
             - php
         volumes       :
             - ./html:/var/www/html/
-            - ./nginx/:/etc/nginx/:ro
+            - ./config/nginx/:/etc/nginx/:ro
         ports:
             - 80:80
             - 443:443
@@ -41,6 +41,6 @@ services:
         container_name: LEMP_mariadb
         image         : mariadb:latest
         volumes       :
-            - ./datadir:/var/lib/mysql
+            - ./database:/var/lib/mysql
         environment:
             - MYSQL_ROOT_PASSWORD=root
