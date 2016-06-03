@@ -1,0 +1,56 @@
+version: '2'
+services:
+
+    #####################
+    # NGINX
+    #####################
+    nginx:
+        container_name: LEMP_nginx
+        image         : nginx:stable
+        links         :
+            - php5
+            - php7
+        volumes       :
+            - ../../html/:/var/www/html/
+            - ../../config/nginx/:/etc/nginx/:ro
+            - ./config/nginx/conf.d/:/etc/nginx/conf.d/:ro
+        ports:
+            - 8080:80
+            - 4430:443
+
+    #####################
+    # PHP5
+    #####################
+    php5:
+        container_name: LEMP_php5
+        build         : ./php5/
+        volumes       :
+            - ../../html/:/var/www/html/
+        depends_on    :
+            - db
+        links:
+            - db
+
+    #####################
+    # PHP7
+    #####################
+    php7:
+        container_name: LEMP_php7
+        build         : ./php7/
+        volumes       :
+            - ../../html/:/var/www/html/
+        depends_on    :
+            - db
+        links:
+            - db
+
+    #####################
+    # DATABASE
+    #####################
+    db:
+        container_name: LEMP_mariadb
+        image         : mariadb:latest
+        volumes       :
+            - ../../database:/var/lib/mysql
+        environment:
+            - MYSQL_ROOT_PASSWORD=root
